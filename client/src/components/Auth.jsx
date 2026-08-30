@@ -15,7 +15,7 @@ const Auth = ({ onLogin }) => {
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     
     try {
-      const response = await fetch(` https://student-task-manager-qfft.onrender.com${endpoint}`, {
+      const response = await fetch(`https://student-task-manager-qfft.onrender.com${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(isLogin ? { email, password } : { name, email, password })
