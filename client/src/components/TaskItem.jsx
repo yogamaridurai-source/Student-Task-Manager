@@ -52,7 +52,7 @@ const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
   const handleDelete = async () => {
     try {
       const userToken = localStorage.getItem('token');
-      const response = await fetch(`https://student-task-manager-qfft.onrender.com`, {
+      const response = await fetch(`https://student-task-manager-qfft.onrender.com/api/tasks/${task._id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${userToken}` }
       });
