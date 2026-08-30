@@ -34,7 +34,7 @@ const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
   const handleToggleComplete = async () => {
     try {
       const userToken = localStorage.getItem('token');
-      const response = await fetch(`http://127.0.0.1:5000/api/tasks/${task._id}`, {
+      const response = await fetch(` https://student-task-manager-qfft.onrender.com`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
   const handleDelete = async () => {
     try {
       const userToken = localStorage.getItem('token');
-      const response = await fetch(`http://127.0.0.1:5000/api/tasks/${task._id}`, {
+      const response = await fetch(`https://student-task-manager-qfft.onrender.com`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${userToken}` }
       });

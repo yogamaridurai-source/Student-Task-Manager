@@ -15,7 +15,7 @@ const Auth = ({ onLogin }) => {
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     
     try {
-      const response = await fetch(`http://127.0.0.1:5000${endpoint}`, {
+      const response = await fetch(` https://student-task-manager-qfft.onrender.com`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(isLogin ? { email, password } : { name, email, password })
@@ -59,7 +59,7 @@ const Auth = ({ onLogin }) => {
               <input
                 type="text"
                 className="w-full bg-[#0d1527] border border-gray-700 rounded p-2 text-white text-sm focus:outline-none focus:border-indigo-500"
-                placeholder="karthika"
+                placeholder="----"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
