@@ -10,7 +10,10 @@ connectDB();
 const app = express();
 
 // Middlewares setup
-app.use(cors());
+app.use(cors({
+  origin:['https://student-task-manager.onrender.com','http://localhost:5173'],
+  credentials:true
+}));
 app.use(express.json());
 
 // API Endpoints Mapping

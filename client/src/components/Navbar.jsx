@@ -4,8 +4,8 @@ import { LogOut, GraduationCap } from 'lucide-react';
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
-  
-  // LocalStorage-ல் இருக்கும் யூசர் விபரங்களை எடுக்கிறது
+
+  // LocalStorage-ல் இருக்கும் யூசர் விவரங்களை எடுக்கிறது
   const finalUser = user || (localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null);
 
   const handleDirectLogout = () => {
@@ -22,8 +22,11 @@ export default function Navbar() {
     localStorage.removeItem('user');
     localStorage.clear();
 
-    // 2. App.jsx-க்கு டோக்கன் அழிந்துவிட்டது என்பதைத் தெரிவிக்க ஒரு Storage Event-ஐ தூண்டுகிறோம்
+    // 2. App-க்கு தெரியப்படுத்த நிகழ்வை தூண்டுகிறது
     window.dispatchEvent(new Event('storage'));
+
+    // 3. லாகின் பக்கத்திற்கு நேரடியாக ரீடைரக்ட் செய்கிறது
+    window.location.href = '/';
   };
 
   return (
@@ -33,7 +36,7 @@ export default function Navbar() {
         <GraduationCap size={28} />
         <span>EduPulse</span>
       </div>
-      
+
       {/* User Actions */}
       {finalUser && (
         <div className="flex items-center space-x-6">
@@ -42,7 +45,7 @@ export default function Navbar() {
           </span>
           <button
             onClick={handleDirectLogout}
-            className="flex items-center space-x-2 bg-slate-800 hover:bg-rose-950/40 border border-slate-700 hover:border-rose-900/60 px-4 py-2 rounded-lg text-slate-300 hover:text-rose-400 transition-all text-sm font-medium"
+            className="flex items-center space-x-2 bg-slate-800 hover:bg-rose-950/40 border border-slate-700 hover:border-rose-900/60 px-4 py-2 rounded-lg text-slate-300 hover:text-rose-400 transition-all cursor-pointer"
           >
             <LogOut size={16} />
             <span>Sign Out</span>
