@@ -16,7 +16,7 @@ const App = () => {
   const fetchTasks = async () => {
     if (!token) return;
     try {
-      const response = await fetch('https://student-task-manager-qfft.onrender.com/tasks', {
+      const response = await fetch('https://student-task-manager-qfft.onrender.com/api/tasks', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
