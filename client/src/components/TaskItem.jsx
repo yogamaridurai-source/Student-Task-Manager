@@ -34,7 +34,7 @@ const TaskItem = ({ task, onTaskUpdated, onTaskDeleted }) => {
   const handleToggleComplete = async () => {
     try {
       const userToken = localStorage.getItem('token');
-      const response = await fetch(` https://student-task-manager-qfft.onrender.com`, {
+      const response = await fetch(` https://student-task-manager-qfft.onrender.com/api/tasks/${task._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
