@@ -4,15 +4,16 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
 
-// Fathis Fashion ப்ராஜெக்ட் மெத்தட் படி நேரடியாக டேட்டாபேஸ் கனெக்ஷன் அழைக்கப்படுகிறது
 connectDB();
 
 const app = express();
 
-// Middlewares setup
+
+
 app.use(cors({
-  origin:['https://student-task-manager.onrender.com','http://localhost:5173'],
-  credentials:true
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
